@@ -22,8 +22,6 @@ You may find some leftover code for AATrilogy and AJ3DS support.
 You can find it in this game's cache obb file. It is in 40a88b2902b054e6588b1c0cd7e09533 file.
 You can extract mes_all.txt from it and put it back with programs like UnityEX(https://forum.zoneofgames.ru/topic/36240-unityex/) or Asset Bundle Extractor(https://github.com/SeriousCache/UABE/releases).
 
-# Any GUI script editors?
-Check out my script editor for AJ script: https://github.com/Akrasr/Apollo-Justice-Script-Editor
 
 # Font edits
 If you edit the font, you will need to update aj3dsOrigCharConv dictionary in the way you'll need it.
