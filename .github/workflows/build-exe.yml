@@ -19,9 +19,6 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v2
 
-      - name: Find solution
-        run: dir /s *.sln
-
       - name: Restore packages
         run: nuget restore dlgTool-AJ-Android-Edition.sln
 
@@ -34,4 +31,3 @@ jobs:
           name: dlgTool-build
           path: |
             **/bin/Release/*.exe
-            **/bin/Release/*.dll
