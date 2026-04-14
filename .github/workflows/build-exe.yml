@@ -23,7 +23,7 @@ jobs:
         run: nuget restore dlgTool.sln
 
       - name: Build solution
-        run: msbuild dlgTool-AJ-Android-Edition.sln /p:Configuration=Release /p:Platform="Any CPU"
+        run: msbuild dlgTool.sln /p:Configuration=Release /p:Platform="Any CPU"
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
