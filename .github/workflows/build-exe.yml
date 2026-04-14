@@ -1,4 +1,4 @@
-name: Build dlgTool AJ
+name: Build dlgTool
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-2025
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup MSBuild
@@ -18,11 +18,17 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v2
 
-      - name: Restore packages
-        run: nuget restore dlgTool.sln
-
-      - name: Install .NET 4.6.1 targeting pack
+      - name: Install .NET Framework 4.6.1 Developer Pack
         run: choco install netfx-4.6.1-devpack -y
+
+      - name: Restore NuGet packages
+        run: nuget restore dlgTool.sln
 
       - name: Build solution
         run: msbuild dlgTool.sln /p:Configuration=Release /p:Platform="Any CPU"
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dlgTool-build
+          path: dlgTool/bin/Release/**
