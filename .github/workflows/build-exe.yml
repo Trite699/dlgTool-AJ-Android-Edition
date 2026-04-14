@@ -2,7 +2,7 @@ name: Build dlgTool AJ Android Edition
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -19,13 +19,16 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v2
 
-      - name: Restore NuGet packages
+      - name: Find solution
+        run: dir /s *.sln
+
+      - name: Restore packages
         run: nuget restore dlgTool-AJ-Android-Edition.sln
 
-      - name: Build Release Solution
+      - name: Build solution
         run: msbuild dlgTool-AJ-Android-Edition.sln /p:Configuration=Release /p:Platform="Any CPU"
 
-      - name: Upload artifact
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: dlgTool-build
