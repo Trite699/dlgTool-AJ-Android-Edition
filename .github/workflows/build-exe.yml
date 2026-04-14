@@ -20,12 +20,12 @@ jobs:
         uses: NuGet/setup-nuget@v2
 
       - name: Restore NuGet packages
-        run: nuget restore
+        run: nuget restore dlgTool-AJ-Android-Edition.sln
 
       - name: Build Release Solution
-        run: msbuild *.sln /p:Configuration=Release /p:Platform="Any CPU"
+        run: msbuild dlgTool-AJ-Android-Edition.sln /p:Configuration=Release /p:Platform="Any CPU"
 
-      - name: Upload build output
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dlgTool-build
