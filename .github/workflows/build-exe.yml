@@ -20,7 +20,7 @@ jobs:
         uses: NuGet/setup-nuget@v2
 
       - name: Restore packages
-        run: nuget restore dlgTool-AJ-Android-Edition.sln
+        run: nuget restore dlgTool.sln
 
       - name: Build solution
         run: msbuild dlgTool-AJ-Android-Edition.sln /p:Configuration=Release /p:Platform="Any CPU"
